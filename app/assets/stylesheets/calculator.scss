@@ -1,0 +1,35 @@
+.Calculator {
+  max-width: 300px;
+  width: 100%;
+
+  .title {
+    color: white;
+    text-align: center;
+  }
+
+  .display {
+    height: 1rem;
+    border-radius: 4px;
+    background-color: #6D7278;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+
+    .key {
+      padding: 0.5rem
+    }
+  }
+}
