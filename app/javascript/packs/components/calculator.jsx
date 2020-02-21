@@ -2,6 +2,7 @@ import React from 'react'
 
 import useCalculator from '../util/useCalculator'
 import '../../../assets/stylesheets/calculator'
+import useEquations from '../util/useEquations'
 
 const Calculator = () => {
   const {
@@ -9,11 +10,20 @@ const Calculator = () => {
     validOperators,
     addToOperand,
     updateOperator,
+    clearInputs,
     components: { operand1, operand2, operator, operatorSymbol },
   } = useCalculator()
 
+  const { createNew } = useEquations()
+
   const operandDisplay =
     operand1 && operand2 !== null && operator ? operand2 : operand1
+
+  const handleSubmit = () => {
+    if (operand1 !== null && operand2 !== null && operator) {
+      createNew({ operand1, operand2, operator }, () => clearInputs())
+    }
+  }
 
   return (
     <div className="Calculator">
@@ -39,7 +49,9 @@ const Calculator = () => {
             {operator}
           </button>
         ))}
-        <button className="key">=</button>
+        <button onClick={handleSubmit} className="key">
+          =
+        </button>
       </div>
     </div>
   )
