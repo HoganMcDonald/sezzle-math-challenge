@@ -19,6 +19,12 @@ const useCalculator = () => {
     return parseInt(Number(a).toString() + b.toString(), 10)
   }
 
+  const clearInputs = () => {
+    setOperand1(null)
+    setOperand2(null)
+    setOperator(null)
+  }
+
   const addToOperand = digit => {
     if (operator === null) {
       const newValue = concatDigits(operand1, digit)
@@ -46,6 +52,7 @@ const useCalculator = () => {
     validInputs,
     validOperators: Object.keys(validOperators),
     updateOperator,
+    clearInputs,
   }
 }
 
