@@ -1,20 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 
-const Hello = props => <div>Hello {props.name}!</div>
+import Calculator from './components/calculator'
+import Layout from './components/layout'
 
-Hello.defaultProps = {
-  name: 'David',
-}
-
-Hello.propTypes = {
-  name: PropTypes.string,
-}
+const Home = () => (
+  <Layout>
+    <Calculator />
+  </Layout>
+)
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="React" />,
+    <Home name="React" />,
     document.body.appendChild(document.createElement('div'))
   )
 })
