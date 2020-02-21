@@ -111,4 +111,5 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   config.web_socket_server_url = "wss://sezzle-math-challenge.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://sezzle-math-challenge.herokuapp.com', 'http://sezzle-math-challenge.herokuapp.com']
 end
