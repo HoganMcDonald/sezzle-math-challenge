@@ -18,7 +18,7 @@ const useEquations = () => {
       type: 'GET',
       url: '/api/equations',
       success: callback,
-      error: res => alert(res.errors),
+      error: res => alert('Unable to perform that operation'),
     })
 
   return { createNew, getEquations }
