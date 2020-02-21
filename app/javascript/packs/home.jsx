@@ -1,13 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { ActionCableProvider } from 'actioncable-client-react'
 
 import Calculator from './components/calculator'
 import Layout from './components/layout'
+import Output from './components/output'
 
 const Home = () => (
-  <Layout>
-    <Calculator />
-  </Layout>
+  <ActionCableProvider url="/cable">
+    <Layout>
+      <Calculator />
+      <Output />
+    </Layout>
+  </ActionCableProvider>
 )
 
 document.addEventListener('DOMContentLoaded', () => {
