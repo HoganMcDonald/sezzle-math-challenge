@@ -24,7 +24,7 @@ class Equation < ActiveRecord::Base
     elsif multiplication?
       operand1 * operand2
     elsif division?
-      operand1 / operand2
+      (operand1.to_d / operand2.to_d).truncate(3)
     end
   end
 
