@@ -5,6 +5,17 @@ class Equation < ActiveRecord::Base
 
   validate :no_divide_by_zero
 
+  scope :most_recent, -> {
+    last(10).reverse.map do |equation|
+      {
+        operand1: equation.operand1,
+        operand2: equation.operand2,
+        operator: equation.operator,
+        solution: equation.solution
+      }
+    end
+  }
+
   def solution
     if addition?
       operand1 + operand2
