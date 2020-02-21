@@ -29,13 +29,18 @@ const useCalculator = () => {
     }
   }
 
-  const updateOperator = symbol => setOperator(validOperators[symbol])
+  const updateOperator = symbol => {
+    if (operand1 !== null) setOperator(validOperators[symbol])
+  }
 
   return {
     components: {
       operand1,
       operand2,
       operator,
+      operatorSymbol: Object.keys(validOperators).find(
+        key => validOperators[key] === operator
+      ),
     },
     addToOperand,
     validInputs,
