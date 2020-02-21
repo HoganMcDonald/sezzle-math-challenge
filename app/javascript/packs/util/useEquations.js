@@ -1,4 +1,3 @@
-import React from 'react'
 import Rails from '@rails/ujs'
 
 Rails.start()
@@ -10,22 +9,19 @@ const useEquations = () => {
       url: '/api/equations',
       dataType: 'json',
       data: `operand1=${operand1}&operand2=${operand2}&operator=${operator}`,
-      success: () => {
-        getEquations()
-        onSuccess()
-      },
+      success: onSuccess,
       error: res => alert(res.errors),
     })
 
-  const getEquations = () =>
+  const getEquations = callback =>
     Rails.ajax({
       type: 'GET',
       url: '/api/equations',
-      success: res => console.log(res),
+      success: callback,
       error: res => alert(res.errors),
     })
 
-  return { createNew }
+  return { createNew, getEquations }
 }
 
 export default useEquations
