@@ -9,7 +9,7 @@ const useCalculator = () => {
     '+': 'addition',
     '-': 'subtraction',
     '*': 'multiplication',
-    '/': 'subtraction',
+    '/': 'division',
   }
 
   const validInputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
