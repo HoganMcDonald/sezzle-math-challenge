@@ -7,22 +7,20 @@ const Calculator = () => {
   const {
     validInputs,
     validOperators,
-    components,
     addToOperand,
     updateOperator,
+    components: { operand1, operand2, operator, operatorSymbol },
   } = useCalculator()
 
   const operandDisplay =
-    components.operand1 && components.operand2 && components.operator
-      ? components.operand2
-      : components.operand1
+    operand1 && operand2 !== null && operator ? operand2 : operand1
 
   return (
     <div className="Calculator">
       <h1 className="title">Calculator</h1>
       <div className="display">
         <p>{operandDisplay}</p>
-        <p>{components.operatorSymbol}</p>
+        <p>{operatorSymbol}</p>
       </div>
       <div className="keypad">
         {validInputs.map(input => (
@@ -41,6 +39,7 @@ const Calculator = () => {
             {operator}
           </button>
         ))}
+        <button className="key">=</button>
       </div>
     </div>
   )
